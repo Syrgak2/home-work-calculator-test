@@ -1,6 +1,5 @@
 package com.examples.skyPro.calculator.controller;
 
-import com.examples.skyPro.calculator.exception.NullParameterException;
 import com.examples.skyPro.calculator.service.CalculatorService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +26,8 @@ public class CalculatorController {
         if (num1 == null || num2 == null) {
             return "Один из параметров отсуствует";
         }
-        return calculatorServiceInterface.plus(num1, num2);
+
+        return num1 + " + " + num2 + " = " + calculatorServiceInterface.plus(num1, num2);
     }
 
     @RequestMapping("/minus")
@@ -36,7 +36,7 @@ public class CalculatorController {
             return "Один из параметров отсуствует";
         }
 
-        return calculatorServiceInterface.minus(num1, num2);
+        return num1 + " - " + num2 + " = " + calculatorServiceInterface.minus(num1, num2);
     }
 
     @RequestMapping("/multiply")
@@ -45,7 +45,7 @@ public class CalculatorController {
             return "Один из параметров отсуствует";
         }
 
-        return calculatorServiceInterface.multiply(num1, num2);
+        return num1 + " * " + num2 + " = " + calculatorServiceInterface.multiply(num1, num2);
     }
 
     @RequestMapping("/divide")
@@ -54,7 +54,7 @@ public class CalculatorController {
             return "Один из параметров отсуствует";
         }
 
-        return calculatorServiceInterface.divide(num1, num2);
+        return num1 + " / " + num2 + " = " + calculatorServiceInterface.divide(num1, num2);
     }
 
 

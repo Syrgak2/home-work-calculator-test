@@ -1,37 +1,31 @@
 package com.examples.skyPro.calculator.service;
 
-import com.examples.skyPro.calculator.exception.NullParameterException;
+import com.examples.skyPro.calculator.exception.DivisionByZeroException;
 
 public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
-    public String plus(Integer num1, Integer num2) {
-
-        int sum = num1 + num2;
-        return num1 + " + " + num2 + " = " + sum;
+    public int plus(Integer num1, Integer num2) {
+        return num1 + num2;
     }
 
     @Override
-    public String minus(Integer num1, Integer num2) {
-        int sum = num1 - num2;
-        return num1 + " - " + num2 + " = " + sum;
+    public int minus(Integer num1, Integer num2) {
+        return num1 - num2;
     }
 
     @Override
-    public String multiply(Integer num1, Integer num2) {
-
-        int sum = num1 * num2;
-        return num1 + " * " + num2 + " = " + sum;
+    public int multiply(Integer num1, Integer num2) {
+        return num1 * num2;
     }
 
     @Override
-    public String divide(Integer num1, Integer num2) {
+    public double divide(Integer num1, Integer num2) {
 
         if (num2 == 0) {
-            throw new IllegalArgumentException("на ноль делит нельзя");
+            throw new DivisionByZeroException("на ноль делить нельзя");
         }
 
-        int sum = num1 / num2;
-        return num1 + " / " + num2 + " = " + sum;
+        return (double) num1 / num2;
     }
 }
